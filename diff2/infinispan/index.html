@@ -1,0 +1,785 @@
+<html>
+	<head>
+		<title>checkstyle xml difference report</title>
+		<style type="text/css" media="all">@import url("./css/maven-base.css");@import url("./css/maven-theme.css"); );</style>
+		<link rel="stylesheet" href="./css/site.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<http-equiv http-equiv="Content-Language" content="en"></http-equiv>
+	</head>
+	<body class="composite">
+		<div id="contentBox">
+			<div class="section">
+				<h2 a="Checkstyle XML difference report">Checkstyle XML difference report</h2>
+				This is symmetric difference generated from two checkstyle-result.xml reports. <br/>
+				All matching records from each XML file are deleted, then remaining records are merged into single report. <br>
+		        <a href="https://github.com/checkstyle/contribution/tree/master/patch-diff-report-tool">Utility that generated this report.</a>
+			</div>
+
+			
+				<h2 a="Checkstyle configuration report">Checkstyle configuration report</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Module Name</th>
+								<th>Base properties</th>
+								<th>Patch properties</th>
+							</tr>
+							
+								
+									<tr>
+										<td class="c">Checker</td>
+										
+										<td class="c">
+											
+												severity
+												
+													<li>warning</li>
+												
+												<br/>
+											
+												charset
+												
+													<li>UTF-8</li>
+												
+												<br/>
+											
+												haltOnException
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												severity
+												
+													<li>warning</li>
+												
+												<br/>
+											
+												charset
+												
+													<li>UTF-8</li>
+												
+												<br/>
+											
+												haltOnException
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">BeforeExecutionExclusionFileFilter</td>
+										
+										<td class="c">
+											
+												fileNamePattern
+												
+													<li>module\-info\.java$</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												fileNamePattern
+												
+													<li>module\-info\.java$</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">TreeWalker</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">SuppressionXpathSingleFilter</td>
+										
+										<td class="c">
+											
+												message
+												
+													<li>Javadoc comment at column \d+ has parse error</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												message
+												
+													<li>Javadoc comment at column \d+ has parse error</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">UnnecessaryParenthesesCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+								
+									
+										
+									<tr>
+										<td class="c">SuppressionSingleFilter</td>
+										
+										<td class="c">
+											
+												checks
+												
+													<li>Checker</li>
+												
+												<br/>
+											
+												message
+												
+													<li>Exception occurred while parsing</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												checks
+												
+													<li>Checker</li>
+												
+												<br/>
+											
+												message
+												
+													<li>Exception occurred while parsing</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+								
+								
+					</table>	
+				</div>
+			
+
+			<div class="section">
+				<h2 a="Summary:">Summary:</h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+						<tr class="a">
+							<th>Report id</th>
+							<th>Files</th>
+							<th>Violations</th>
+							
+								<th>Severity-warning</th>
+							
+						</tr>
+						<tr class="b">
+							<td>base</td>
+							<td id="filesBase">4840</td>
+							<td id="totalBase">724</td>
+							
+								<td id="warningSeverityNumBase">724</td>
+							
+						</tr>
+						<tr class="a">
+							<td>patch</td>
+							<td id="filesPatch">4840</td>
+							<td id="totalPatch">742 (18 added)</td>
+							
+								<td id="warningSeverityStatisticsPatch">742 (18 added)</td>
+							
+						</tr>
+						<tr class="d">
+							<td/>
+							<td id="filesDiff">13 files with differences</td>
+							<td id="totalDiff">18 changes in violations</td>
+							
+								<td id="warningSeverityNumDiff">18 changes in violations</td>
+							
+						<tr>
+					</table>
+
+					
+						<br />
+						<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Report id</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.checks.coding.UnnecessaryParenthesesCheck</th>
+								
+							</tr>
+							<tr class="b">
+								<td>base</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.coding.UnnecessaryParenthesesCheckModuleNumBase">724</td>
+								
+							</tr>
+							<tr class="a">
+								<td>patch</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.coding.UnnecessaryParenthesesCheckModuleStatisticsPatch">742 (18 added)</td>
+								
+							</tr>
+							<tr class="d">
+								<td>changes in violations</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.checks.coding.UnnecessaryParenthesesCheckModuleNumDiff">18</td>
+								
+							<tr>
+						</table>
+					
+
+					<br />
+					Number of unique base messages reported below: <span id="uniqueMessagesBase">0</span><br />
+					Number of unique patch messages reported below: <span id="uniqueMessagesPatch">18</span><br />
+				</div>
+			</div>
+
+			<div class="section">
+				<h2 a="Violations:">Violations:</h2>
+				<div class="section">
+					<h3>/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/commons/src/main/java/org/infinispan/commons/util/concurrent/jdk8backported/BoundedEquivalentConcurrentHashMapV8.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A1" href = "#A1">#A1</a></td>
+								<td>warning</td>
+								<td>UnnecessaryParentheses</td>
+								<td>Unnecessary parentheses around expression.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/commons/src/main/java/org/infinispan/commons/util/concurrent/jdk8backported/BoundedEquivalentConcurrentHashMapV8.java.html#L5150">5150</a></td>
+								
+								
+									
+									<td class="keepWidth">14</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/commons/src/main/java/org/infinispan/commons/util/concurrent/jdk8backported/EquivalentConcurrentHashMapV8.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A2" href = "#A2">#A2</a></td>
+								<td>warning</td>
+								<td>UnnecessaryParentheses</td>
+								<td>Unnecessary parentheses around expression.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/commons/src/main/java/org/infinispan/commons/util/concurrent/jdk8backported/EquivalentConcurrentHashMapV8.java.html#L3578">3578</a></td>
+								
+								
+									
+									<td class="keepWidth">14</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/commons/src/main/java/org/infinispan/commons/util/concurrent/jdk8backported/ForkJoinPool.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A3" href = "#A3">#A3</a></td>
+								<td>warning</td>
+								<td>UnnecessaryParentheses</td>
+								<td>Unnecessary parentheses around expression.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/commons/src/main/java/org/infinispan/commons/util/concurrent/jdk8backported/ForkJoinPool.java.html#L700">700</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/core/src/main/java/org/infinispan/commands/write/ValueMatcher.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A4" href = "#A4">#A4</a></td>
+								<td>warning</td>
+								<td>UnnecessaryParentheses</td>
+								<td>Unnecessary parentheses around expression.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/core/src/main/java/org/infinispan/commands/write/ValueMatcher.java.html#L131">131</a></td>
+								
+								
+									
+									<td class="keepWidth">14</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/core/src/main/java/org/infinispan/interceptors/MarshalledValueInterceptor.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A5" href = "#A5">#A5</a></td>
+								<td>warning</td>
+								<td>UnnecessaryParentheses</td>
+								<td>Unnecessary parentheses around expression.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/core/src/main/java/org/infinispan/interceptors/MarshalledValueInterceptor.java.html#L235">235</a></td>
+								
+								
+									
+									<td class="keepWidth">26</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A6" href = "#A6">#A6</a></td>
+								<td>warning</td>
+								<td>UnnecessaryParentheses</td>
+								<td>Unnecessary parentheses around expression.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/core/src/main/java/org/infinispan/interceptors/MarshalledValueInterceptor.java.html#L236">236</a></td>
+								
+								
+									
+									<td class="keepWidth">28</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/core/src/test/java/org/infinispan/commons/util/concurrent/jdk8backported/ConcurrentHashMapV8.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A7" href = "#A7">#A7</a></td>
+								<td>warning</td>
+								<td>UnnecessaryParentheses</td>
+								<td>Unnecessary parentheses around expression.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/core/src/test/java/org/infinispan/commons/util/concurrent/jdk8backported/ConcurrentHashMapV8.java.html#L3538">3538</a></td>
+								
+								
+									
+									<td class="keepWidth">14</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/core/src/test/java/org/infinispan/marshall/core/JBossMarshallingTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A8" href = "#A8">#A8</a></td>
+								<td>warning</td>
+								<td>UnnecessaryParentheses</td>
+								<td>Unnecessary parentheses around expression.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/core/src/test/java/org/infinispan/marshall/core/JBossMarshallingTest.java.html#L141">141</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/core/src/test/java/org/infinispan/marshall/core/MarshalledValueTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A9" href = "#A9">#A9</a></td>
+								<td>warning</td>
+								<td>UnnecessaryParentheses</td>
+								<td>Unnecessary parentheses around expression.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/core/src/test/java/org/infinispan/marshall/core/MarshalledValueTest.java.html#L808">808</a></td>
+								
+								
+									
+									<td class="keepWidth">17</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/core/src/test/java/org/infinispan/tx/dld/BaseDldPessimisticLockingTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A10" href = "#A10">#A10</a></td>
+								<td>warning</td>
+								<td>UnnecessaryParentheses</td>
+								<td>Unnecessary parentheses around expression.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/core/src/test/java/org/infinispan/tx/dld/BaseDldPessimisticLockingTest.java.html#L78">78</a></td>
+								
+								
+									
+									<td class="keepWidth">42</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/extended-statistics/src/test/java/org/infinispan/stats/BaseTxClusterExtendedStatisticLogicTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A11" href = "#A11">#A11</a></td>
+								<td>warning</td>
+								<td>UnnecessaryParentheses</td>
+								<td>Unnecessary parentheses around expression.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/extended-statistics/src/test/java/org/infinispan/stats/BaseTxClusterExtendedStatisticLogicTest.java.html#L493">493</a></td>
+								
+								
+									
+									<td class="keepWidth">78</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A12" href = "#A12">#A12</a></td>
+								<td>warning</td>
+								<td>UnnecessaryParentheses</td>
+								<td>Unnecessary parentheses around expression.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/extended-statistics/src/test/java/org/infinispan/stats/BaseTxClusterExtendedStatisticLogicTest.java.html#L503">503</a></td>
+								
+								
+									
+									<td class="keepWidth">67</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A13" href = "#A13">#A13</a></td>
+								<td>warning</td>
+								<td>UnnecessaryParentheses</td>
+								<td>Unnecessary parentheses around expression.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/extended-statistics/src/test/java/org/infinispan/stats/BaseTxClusterExtendedStatisticLogicTest.java.html#L504">504</a></td>
+								
+								
+									
+									<td class="keepWidth">66</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/extended-statistics/src/test/java/org/infinispan/stats/logic/LocalTxClusterExtendedStatisticLogicTest.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A14" href = "#A14">#A14</a></td>
+								<td>warning</td>
+								<td>UnnecessaryParentheses</td>
+								<td>Unnecessary parentheses around expression.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/extended-statistics/src/test/java/org/infinispan/stats/logic/LocalTxClusterExtendedStatisticLogicTest.java.html#L327">327</a></td>
+								
+								
+									
+									<td class="keepWidth">71</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A15" href = "#A15">#A15</a></td>
+								<td>warning</td>
+								<td>UnnecessaryParentheses</td>
+								<td>Unnecessary parentheses around expression.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/extended-statistics/src/test/java/org/infinispan/stats/logic/LocalTxClusterExtendedStatisticLogicTest.java.html#L329">329</a></td>
+								
+								
+									
+									<td class="keepWidth">77</td>
+								
+							</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A16" href = "#A16">#A16</a></td>
+								<td>warning</td>
+								<td>UnnecessaryParentheses</td>
+								<td>Unnecessary parentheses around expression.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/extended-statistics/src/test/java/org/infinispan/stats/logic/LocalTxClusterExtendedStatisticLogicTest.java.html#L333">333</a></td>
+								
+								
+									
+									<td class="keepWidth">78</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/lucene/lucene-directory/src/main/java/org/infinispan/lucene/LuceneKey2StringMapper.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A17" href = "#A17">#A17</a></td>
+								<td>warning</td>
+								<td>UnnecessaryParentheses</td>
+								<td>Unnecessary parentheses around expression.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/lucene/lucene-directory/src/main/java/org/infinispan/lucene/LuceneKey2StringMapper.java.html#L31">31</a></td>
+								
+								
+									
+									<td class="keepWidth">14</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+				<div class="section">
+					<h3>/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/server/integration/infinispan/src/main/java/org/jboss/as/clustering/infinispan/DefaultEmbeddedCacheManager.java</h3>
+					<tr class="b">
+					<table border="0" class="bodyTable">
+					        <th></th>
+							<th>Severity</th>
+							<th>Rule</th>
+							<th>Message</th>
+							<th>Line</th>
+							<th>Col</th>
+						</tr>
+						
+							
+								<tr class="a">
+							
+								<td class="keepWidth"><a name="A18" href = "#A18">#A18</a></td>
+								<td>warning</td>
+								<td>UnnecessaryParentheses</td>
+								<td>Unnecessary parentheses around expression.</td>
+								
+									
+									<td class="keepWidth"><a href = "xref/home/vyom/IdeaProjects/contribution/checkstyle-tester/repositories/infinispan/server/integration/infinispan/src/main/java/org/jboss/as/clustering/infinispan/DefaultEmbeddedCacheManager.java.html#L151">151</a></td>
+								
+								
+									
+									<td class="keepWidth">16</td>
+								
+							</tr>
+						
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
