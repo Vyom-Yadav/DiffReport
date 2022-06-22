@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JavadocParserBaseVisitor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">checkstyle</a> &gt; <a href="index.source.html" class="el_package">com.puppycrawl.tools.checkstyle.grammar.javadoc</a> &gt; <span class="el_source">JavadocParserBaseVisitor.java</span></div><h1>JavadocParserBaseVisitor.java</h1><pre class="source lang-java linenums">// Generated from com/puppycrawl/tools/checkstyle/grammar/javadoc/JavadocParser.g4 by ANTLR 4.10.1
+package com.puppycrawl.tools.checkstyle.grammar.javadoc;
+import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
+
+/**
+ * This class provides an empty implementation of {@link JavadocParserVisitor},
+ * which can be extended to create a visitor which only needs to handle a subset
+ * of the available methods.
+ *
+ * @param &lt;T&gt; The return type of the visit operation. Use {@link Void} for
+ * operations with no return type.
+ */
+<span class="nc" id="L13">public class JavadocParserBaseVisitor&lt;T&gt; extends AbstractParseTreeVisitor&lt;T&gt; implements JavadocParserVisitor&lt;T&gt; {</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L20">	@Override public T visitJavadoc(JavadocParser.JavadocContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L27">	@Override public T visitHtmlElement(JavadocParser.HtmlElementContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L34">	@Override public T visitHtmlElementStart(JavadocParser.HtmlElementStartContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L41">	@Override public T visitHtmlElementEnd(JavadocParser.HtmlElementEndContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L48">	@Override public T visitAttribute(JavadocParser.AttributeContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L55">	@Override public T visitHtmlTag(JavadocParser.HtmlTagContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L62">	@Override public T visitPTagStart(JavadocParser.PTagStartContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L69">	@Override public T visitPTagEnd(JavadocParser.PTagEndContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L76">	@Override public T visitParagraph(JavadocParser.ParagraphContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L83">	@Override public T visitLiTagStart(JavadocParser.LiTagStartContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L90">	@Override public T visitLiTagEnd(JavadocParser.LiTagEndContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L97">	@Override public T visitLi(JavadocParser.LiContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L104">	@Override public T visitTrTagStart(JavadocParser.TrTagStartContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L111">	@Override public T visitTrTagEnd(JavadocParser.TrTagEndContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L118">	@Override public T visitTr(JavadocParser.TrContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L125">	@Override public T visitTdTagStart(JavadocParser.TdTagStartContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L132">	@Override public T visitTdTagEnd(JavadocParser.TdTagEndContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L139">	@Override public T visitTd(JavadocParser.TdContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L146">	@Override public T visitThTagStart(JavadocParser.ThTagStartContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L153">	@Override public T visitThTagEnd(JavadocParser.ThTagEndContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L160">	@Override public T visitTh(JavadocParser.ThContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L167">	@Override public T visitBodyTagStart(JavadocParser.BodyTagStartContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L174">	@Override public T visitBodyTagEnd(JavadocParser.BodyTagEndContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L181">	@Override public T visitBody(JavadocParser.BodyContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L188">	@Override public T visitColgroupTagStart(JavadocParser.ColgroupTagStartContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L195">	@Override public T visitColgroupTagEnd(JavadocParser.ColgroupTagEndContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L202">	@Override public T visitColgroup(JavadocParser.ColgroupContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L209">	@Override public T visitDdTagStart(JavadocParser.DdTagStartContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L216">	@Override public T visitDdTagEnd(JavadocParser.DdTagEndContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L223">	@Override public T visitDd(JavadocParser.DdContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L230">	@Override public T visitDtTagStart(JavadocParser.DtTagStartContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L237">	@Override public T visitDtTagEnd(JavadocParser.DtTagEndContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L244">	@Override public T visitDt(JavadocParser.DtContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L251">	@Override public T visitHeadTagStart(JavadocParser.HeadTagStartContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L258">	@Override public T visitHeadTagEnd(JavadocParser.HeadTagEndContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L265">	@Override public T visitHead(JavadocParser.HeadContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L272">	@Override public T visitHtmlTagStart(JavadocParser.HtmlTagStartContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L279">	@Override public T visitHtmlTagEnd(JavadocParser.HtmlTagEndContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L286">	@Override public T visitHtml(JavadocParser.HtmlContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L293">	@Override public T visitOptionTagStart(JavadocParser.OptionTagStartContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L300">	@Override public T visitOptionTagEnd(JavadocParser.OptionTagEndContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L307">	@Override public T visitOption(JavadocParser.OptionContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L314">	@Override public T visitTbodyTagStart(JavadocParser.TbodyTagStartContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L321">	@Override public T visitTbodyTagEnd(JavadocParser.TbodyTagEndContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L328">	@Override public T visitTbody(JavadocParser.TbodyContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L335">	@Override public T visitTfootTagStart(JavadocParser.TfootTagStartContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L342">	@Override public T visitTfootTagEnd(JavadocParser.TfootTagEndContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L349">	@Override public T visitTfoot(JavadocParser.TfootContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L356">	@Override public T visitTheadTagStart(JavadocParser.TheadTagStartContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L363">	@Override public T visitTheadTagEnd(JavadocParser.TheadTagEndContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L370">	@Override public T visitThead(JavadocParser.TheadContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L377">	@Override public T visitSingletonElement(JavadocParser.SingletonElementContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L384">	@Override public T visitEmptyTag(JavadocParser.EmptyTagContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L391">	@Override public T visitAreaTag(JavadocParser.AreaTagContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L398">	@Override public T visitBaseTag(JavadocParser.BaseTagContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L405">	@Override public T visitBasefontTag(JavadocParser.BasefontTagContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L412">	@Override public T visitBrTag(JavadocParser.BrTagContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L419">	@Override public T visitColTag(JavadocParser.ColTagContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L426">	@Override public T visitFrameTag(JavadocParser.FrameTagContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L433">	@Override public T visitHrTag(JavadocParser.HrTagContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L440">	@Override public T visitImgTag(JavadocParser.ImgTagContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L447">	@Override public T visitInputTag(JavadocParser.InputTagContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L454">	@Override public T visitIsindexTag(JavadocParser.IsindexTagContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L461">	@Override public T visitLinkTag(JavadocParser.LinkTagContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L468">	@Override public T visitMetaTag(JavadocParser.MetaTagContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L475">	@Override public T visitParamTag(JavadocParser.ParamTagContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L482">	@Override public T visitWrongSingletonTag(JavadocParser.WrongSingletonTagContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L489">	@Override public T visitSingletonTagName(JavadocParser.SingletonTagNameContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L496">	@Override public T visitDescription(JavadocParser.DescriptionContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L503">	@Override public T visitReference(JavadocParser.ReferenceContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L510">	@Override public T visitParameters(JavadocParser.ParametersContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L517">	@Override public T visitJavadocTag(JavadocParser.JavadocTagContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L524">	@Override public T visitJavadocInlineTag(JavadocParser.JavadocInlineTagContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L531">	@Override public T visitHtmlComment(JavadocParser.HtmlCommentContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L538">	@Override public T visitText(JavadocParser.TextContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L545">	@Override public T visitEmbedTag(JavadocParser.EmbedTagContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L552">	@Override public T visitKeygenTag(JavadocParser.KeygenTagContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L559">	@Override public T visitSourceTag(JavadocParser.SourceTagContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L566">	@Override public T visitTrackTag(JavadocParser.TrackTagContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L573">	@Override public T visitWbrTag(JavadocParser.WbrTagContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L580">	@Override public T visitOptgroupTagStart(JavadocParser.OptgroupTagStartContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L587">	@Override public T visitOptgroupTagEnd(JavadocParser.OptgroupTagEndContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L594">	@Override public T visitOptgroup(JavadocParser.OptgroupContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L601">	@Override public T visitRbTagStart(JavadocParser.RbTagStartContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L608">	@Override public T visitRbTagEnd(JavadocParser.RbTagEndContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L615">	@Override public T visitRb(JavadocParser.RbContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L622">	@Override public T visitRtTagStart(JavadocParser.RtTagStartContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L629">	@Override public T visitRtTagEnd(JavadocParser.RtTagEndContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L636">	@Override public T visitRt(JavadocParser.RtContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L643">	@Override public T visitRtcTagStart(JavadocParser.RtcTagStartContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L650">	@Override public T visitRtcTagEnd(JavadocParser.RtcTagEndContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L657">	@Override public T visitRtc(JavadocParser.RtcContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L664">	@Override public T visitRpTagStart(JavadocParser.RpTagStartContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L671">	@Override public T visitRpTagEnd(JavadocParser.RpTagEndContext ctx) { return visitChildren(ctx); }</span>
+	/**
+	 * {@inheritDoc}
+	 *
+	 * &lt;p&gt;The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.&lt;/p&gt;
+	 */
+<span class="nc" id="L678">	@Override public T visitRp(JavadocParser.RpContext ctx) { return visitChildren(ctx); }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
