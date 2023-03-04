@@ -1,0 +1,543 @@
+<html>
+	<head>
+		<title>checkstyle xml difference report</title>
+		<style type="text/css" media="all">@import url("./css/maven-base.css");@import url("./css/maven-theme.css");</style>
+		<link rel="stylesheet" href="./css/site.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<http-equiv http-equiv="Content-Language" content="en"></http-equiv>
+	</head>
+	<body class="composite">
+		<div id="contentBox">
+			<div class="section">
+				<h2 a="Checkstyle XML difference report">Checkstyle XML difference report</h2>
+				This is symmetric difference generated from two checkstyle-result.xml reports. <br/>
+				All matching records from each XML file are deleted, then remaining records are merged into single report. <br>
+		        <a href="https://github.com/checkstyle/contribution/tree/master/patch-diff-report-tool">Utility that generated this report.</a>
+			</div>
+
+			
+				<h2><a name="Configuration" href="#Configuration">Checkstyle configuration report</a></h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Module Name</th>
+								<th>Base properties</th>
+								<th>Patch properties</th>
+							</tr>
+							
+								
+									<tr>
+										<td class="c">Checker</td>
+										
+										<td class="c">
+											
+												severity
+												
+													<li>ignore</li>
+												
+												<br/>
+											
+												haltOnException
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												severity
+												
+													<li>ignore</li>
+												
+												<br/>
+											
+												haltOnException
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">BeforeExecutionExclusionFileFilter</td>
+										
+										<td class="c">
+											
+												fileNamePattern
+												
+													<li>module\-info\.java$</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												fileNamePattern
+												
+													<li>module\-info\.java$</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">TreeWalker</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.MapIterationInForEachLoopCheck</td>
+										
+										<td class="c">
+											
+												proposeKeySetUsage
+												
+													<li>true</li>
+												
+												<br/>
+											
+												proposeEntrySetUsage
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												proposeKeySetUsage
+												
+													<li>true</li>
+												
+												<br/>
+											
+												proposeEntrySetUsage
+												
+													<li>true</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.AvoidModifiersForTypesCheck</td>
+										
+										<td class="c">
+											
+												forbiddenClassesRegexpStatic
+												
+													<li>Logger</li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpPackagePrivate
+												
+													<li>Logger</li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpPublic
+												
+													<li>Logger</li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpProtected
+												
+													<li>Logger</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												forbiddenClassesRegexpStatic
+												
+													<li>Logger</li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpPackagePrivate
+												
+													<li>Logger</li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpPublic
+												
+													<li>Logger</li>
+												
+												<br/>
+											
+												forbiddenClassesRegexpProtected
+												
+													<li>Logger</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ForbidCertainImportsCheck</td>
+										
+										<td class="c">
+											
+												packageNameRegexp
+												
+													<li>.+</li>
+												
+												<br/>
+											
+												forbiddenImportsExcludesRegexp
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenImportsRegexp
+												
+													<li>java\.util\.Stack|java\.util\.Vector|             com\.google\.collect\.Iterables|com\.google\.common\.annotations\.Beta|             com\.google\.common\.base\.Predicate|com\.google\.common\.base\.String||             com\.google\.common\.base\.Function|com\.google\.common\.base\.Supplier|             com\.google\.common\.base\.Charsets|com\.google\.common\.base\.MoreObjects|             com\.google\.common\.base\.Equivalence|com\.google\.common\.base\.Preconditions|             com\.google\.common\.base\.Optional|com\.google\.common\.io\.CharSource|             com\.google\.common\.primitives.*|com\.google\.common\.collect\.Sets|             com\.google\.common\.collect\.Queues|com\.google\.common\.collect\.Lists|             com\.google\.common\.annotations\.GwtCompatible|com\.google\.common\.io\.Files|             com\.google\.common\.collect\.TreeTraverser</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												packageNameRegexp
+												
+													<li>.+</li>
+												
+												<br/>
+											
+												forbiddenImportsExcludesRegexp
+												
+													<li></li>
+												
+												<br/>
+											
+												forbiddenImportsRegexp
+												
+													<li>java\.util\.Stack|java\.util\.Vector|             com\.google\.collect\.Iterables|com\.google\.common\.annotations\.Beta|             com\.google\.common\.base\.Predicate|com\.google\.common\.base\.String||             com\.google\.common\.base\.Function|com\.google\.common\.base\.Supplier|             com\.google\.common\.base\.Charsets|com\.google\.common\.base\.MoreObjects|             com\.google\.common\.base\.Equivalence|com\.google\.common\.base\.Preconditions|             com\.google\.common\.base\.Optional|com\.google\.common\.io\.CharSource|             com\.google\.common\.primitives.*|com\.google\.common\.collect\.Sets|             com\.google\.common\.collect\.Queues|com\.google\.common\.collect\.Lists|             com\.google\.common\.annotations\.GwtCompatible|com\.google\.common\.io\.Files|             com\.google\.common\.collect\.TreeTraverser</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ForbidCertainImportsCheck</td>
+										
+										<td class="c">
+											
+												packageNameRegexp
+												
+													<li>.+\.checkstyle\.api.*|.+\.checkstyle\.utils.*</li>
+												
+												<br/>
+											
+												forbiddenImportsExcludesRegexp
+												
+													<li>^com.puppycrawl.tools.checkstyle.checks.naming.AccessModifier$</li>
+												
+												<br/>
+											
+												forbiddenImportsRegexp
+												
+													<li>.+\.checks\..+</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												packageNameRegexp
+												
+													<li>.+\.checkstyle\.api.*|.+\.checkstyle\.utils.*</li>
+												
+												<br/>
+											
+												forbiddenImportsExcludesRegexp
+												
+													<li>^com.puppycrawl.tools.checkstyle.checks.naming.AccessModifier$</li>
+												
+												<br/>
+											
+												forbiddenImportsRegexp
+												
+													<li>.+\.checks\..+</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.ForbidInstantiationCheck</td>
+										
+										<td class="c">
+											
+												forbiddenClasses
+												
+													<li>java.lang.NullPointerException,              java.util.Vector, java.util.Stack,com.google.collect.Iterables,              com.google.common.primitives.Ints,com.google.common.base.String,              com.google.common.base.Function,com.google.common.base.Supplier,              com.google.common.base.Charsets,com.google.common.base.MoreObjects,              com.google.common.base.Optional,com.google.common.base.Equivalence,              com.google.common.base.Preconditions,com.google.common.base.Predicate,              com.google.common.io.CharSource,com.google.common.annotations.Beta,              com.google.common.collect.Queues,com.google.common.collect.Sets,              com.google.common.collect.Lists,com.google.common.annotations.GwtCompatible,              com.google.common.io.Files,com.google.common.collect.TreeTraverser</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												forbiddenClasses
+												
+													<li>java.lang.NullPointerException,              java.util.Vector, java.util.Stack,com.google.collect.Iterables,              com.google.common.primitives.Ints,com.google.common.base.String,              com.google.common.base.Function,com.google.common.base.Supplier,              com.google.common.base.Charsets,com.google.common.base.MoreObjects,              com.google.common.base.Optional,com.google.common.base.Equivalence,              com.google.common.base.Preconditions,com.google.common.base.Predicate,              com.google.common.io.CharSource,com.google.common.annotations.Beta,              com.google.common.collect.Queues,com.google.common.collect.Sets,              com.google.common.collect.Lists,com.google.common.annotations.GwtCompatible,              com.google.common.io.Files,com.google.common.collect.TreeTraverser</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.Jsr305AnnotationsCheck</td>
+										
+										<td class="c">
+											
+												allowOverridingParameter
+												
+													<li>false</li>
+												
+												<br/>
+											
+												packages
+												
+													<li>com,org</li>
+												
+												<br/>
+											
+												allowOverridingReturnValue
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+										
+										<td class="c">
+											
+												allowOverridingParameter
+												
+													<li>false</li>
+												
+												<br/>
+											
+												packages
+												
+													<li>com,org</li>
+												
+												<br/>
+											
+												allowOverridingReturnValue
+												
+													<li>false</li>
+												
+												<br/>
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.EitherLogOrThrowCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.coding.RequireFailForTryCatchInJunitCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+										
+									<tr>
+										<td class="c">com.github.sevntu.checkstyle.checks.annotation.ForbidAnnotationElementValueCheck</td>
+										
+										<td class="c">
+											
+										</td>
+										
+										
+										<td class="c">
+											
+										</td>
+										
+									</tr>
+									
+								
+									
+								
+									
+								
+								
+					</table>	
+				</div>
+			
+
+			<div class="section">
+				<h2><a name="Summary" href="#Summary">Summary:</a></h2>
+				<div class="section">
+					<table border="0" class="bodyTable">
+						<tr class="a">
+							<th>Report id</th>
+							<th>Files</th>
+							<th>Violations</th>
+							
+								<th>Severity-error</th>
+							
+						</tr>
+						<tr class="b">
+							<td>base</td>
+							<td id="filesBase">1702</td>
+							<td id="totalBase">7</td>
+							
+								<td id="errorSeverityNumBase">7</td>
+							
+						</tr>
+						<tr class="a">
+							<td>patch</td>
+							<td id="filesPatch">1702</td>
+							<td id="totalPatch">7</td>
+							
+								<td id="errorSeverityStatisticsPatch">7</td>
+							
+						</tr>
+						<tr class="d">
+							<td/>
+							<td id="filesDiff">0 files with differences</td>
+							<td id="totalDiff">0 changes in violations</td>
+							
+								<td id="errorSeverityNumDiff">0 changes in violations</td>
+							
+						<tr>
+					</table>
+
+					
+						<br />
+						<table border="0" class="bodyTable">
+							<tr class="a">
+								<th>Report id</th>
+								
+									<th>com.puppycrawl.tools.checkstyle.Checker</th>
+								
+							</tr>
+							<tr class="b">
+								<td>base</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.CheckerModuleNumBase">7</td>
+								
+							</tr>
+							<tr class="a">
+								<td>patch</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.CheckerModuleStatisticsPatch">7</td>
+								
+							</tr>
+							<tr class="d">
+								<td>changes in violations</td>
+								
+									<td id="com.puppycrawl.tools.checkstyle.CheckerModuleNumDiff">0</td>
+								
+							<tr>
+						</table>
+					
+
+					<br />
+					Number of unique base messages reported below: <span id="uniqueMessagesBase">0</span><br />
+					Number of unique patch messages reported below: <span id="uniqueMessagesPatch">0</span><br />
+				</div>
+			</div>
+
+			<div class="section">
+				<h2><a name="Violations" href="#Violations">Violations:</a></h2>
+			</div>
+		</div>
+	</body>
+</html>
