@@ -1,0 +1,9 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: local-path-provisioner-kindest-local-path-provisioner-v0-0-22-kind-0-restrict-automount-sa-token
+  namespace: local-path-storage
+spec:
+  selector:
+    matchLabels:
+      app: local-path-provisioner

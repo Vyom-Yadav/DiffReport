@@ -1,0 +1,9 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: kubearmor-policy-manager-gcr-io-kubebuilder-kube-rbac-proxy-v0-8-0-restrict-automount-sa-token
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      kubearmor-app: kubearmor-policy-manager

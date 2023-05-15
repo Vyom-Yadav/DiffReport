@@ -1,0 +1,20 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: local-path-provisioner-kindest-local-path-provisioner-v0-0-22-kind-0-write-in-shm-dir
+  namespace: local-path-storage
+spec:
+  action: Block
+  file:
+    matchDirectories:
+    - dir: /dev/shm/
+      readOnly: true
+      recursive: true
+  message: Alert! write to /dev/shm folder prevented.
+  selector:
+    matchLabels:
+      app: local-path-provisioner
+  severity: 5
+  tags:
+  - MITRE_execution
+  - MITRE

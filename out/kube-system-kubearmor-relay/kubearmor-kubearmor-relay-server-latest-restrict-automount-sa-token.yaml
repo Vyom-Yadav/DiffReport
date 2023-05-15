@@ -1,0 +1,9 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: kubearmor-relay-kubearmor-kubearmor-relay-server-latest-restrict-automount-sa-token
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      kubearmor-app: kubearmor-relay

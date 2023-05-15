@@ -1,0 +1,20 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: discovery-engine-accuknox-knoxautopolicy-latest-write-in-shm-dir
+  namespace: accuknox-agents
+spec:
+  action: Block
+  file:
+    matchDirectories:
+    - dir: /dev/shm/
+      readOnly: true
+      recursive: true
+  message: Alert! write to /dev/shm folder prevented.
+  selector:
+    matchLabels:
+      app: discovery-engine
+  severity: 5
+  tags:
+  - MITRE_execution
+  - MITRE

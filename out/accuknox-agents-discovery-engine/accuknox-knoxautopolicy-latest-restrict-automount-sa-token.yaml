@@ -1,0 +1,9 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: discovery-engine-accuknox-knoxautopolicy-latest-restrict-automount-sa-token
+  namespace: accuknox-agents
+spec:
+  selector:
+    matchLabels:
+      app: discovery-engine

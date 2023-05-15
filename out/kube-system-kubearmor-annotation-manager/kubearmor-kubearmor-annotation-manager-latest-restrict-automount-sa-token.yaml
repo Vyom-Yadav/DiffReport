@@ -1,0 +1,9 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: kubearmor-annotation-manager-kubearmor-kubearmor-annotation-manager-latest-restrict-automount-sa-token
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      kubearmor-app: kubearmor-annotation-manager

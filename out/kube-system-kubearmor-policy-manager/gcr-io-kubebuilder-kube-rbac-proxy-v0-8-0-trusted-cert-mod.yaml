@@ -1,0 +1,26 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: kubearmor-policy-manager-gcr-io-kubebuilder-kube-rbac-proxy-v0-8-0-trusted-cert-mod
+  namespace: kube-system
+spec:
+  action: Block
+  file:
+    matchDirectories:
+    - dir: /etc/ssl/
+      readOnly: true
+      recursive: true
+    - dir: /etc/pki/
+      readOnly: true
+      recursive: true
+    - dir: /usr/local/share/ca-certificates/
+      readOnly: true
+      recursive: true
+  message: Credentials modification denied
+  selector:
+    matchLabels:
+      kubearmor-app: kubearmor-policy-manager
+  severity: 1
+  tags:
+  - MITRE
+  - MITRE_T1552_unsecured_credentials

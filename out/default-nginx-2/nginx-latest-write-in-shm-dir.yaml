@@ -1,0 +1,20 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: nginx-2-nginx-latest-write-in-shm-dir
+  namespace: default
+spec:
+  action: Block
+  file:
+    matchDirectories:
+    - dir: /dev/shm/
+      readOnly: true
+      recursive: true
+  message: Alert! write to /dev/shm folder prevented.
+  selector:
+    matchLabels:
+      app: nginx-2
+  severity: 5
+  tags:
+  - MITRE_execution
+  - MITRE

@@ -1,0 +1,19 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: local-path-provisioner-kindest-local-path-provisioner-v0-0-22-kind-0-maint-tools-access
+  namespace: local-path-storage
+spec:
+  action: Audit
+  message: restricted maintenance tool access attempt detected
+  process:
+    matchDirectories:
+    - dir: /sbin/
+      recursive: true
+  selector:
+    matchLabels:
+      app: local-path-provisioner
+  severity: 1
+  tags:
+  - PCI_DSS
+  - MITRE

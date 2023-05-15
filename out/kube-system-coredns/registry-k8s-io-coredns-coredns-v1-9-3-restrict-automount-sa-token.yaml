@@ -1,0 +1,9 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: coredns-registry-k8s-io-coredns-coredns-v1-9-3-restrict-automount-sa-token
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      k8s-app: kube-dns
