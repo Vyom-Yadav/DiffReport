@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js">
+    </script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link href="./static/main.css" rel="stylesheet" />
+    <script type="text/javascript">
+        function showHideRow(row) {
+            $("#" + row).toggle();
+        }
+    </script>
+    <title>Security Report</title>
+    <div span class="v38_6838">Security Report (27-May-2023 21:19:54)</span> </div>
+</head>
+
+<body>
+    <div class="v38_7029"></div>
+<div class="div-main">
+    <br>
+    <div class="v38_6837"></div>
+    <div class="wrapper">
+        
+            <table align=center border=0 cellpadding=2>
+                
+                <tr align=left>
+                    <td>Container</td>
+                    <td>: accuknox/knoxautopolicy:genericKyvernoPol</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>OS/Arch/Distro</td>
+                    <td>: //</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>Output Directory</td>
+                    <td>: out/accuknox-agents-discovery-engine</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>policy-template version</td>
+                    <td>: v0.1.9</td>
+                </tr>
+                
+            </table>
+        
+    </div>
+    <div class="div-main">
+        <br>
+    </div>
+    <table border=0 id="table_detail" align=center cellpadding=30 >
+        <tr>
+            
+                <th>POLICY</th>
+            
+                <th>DESCRIPTION</th>
+            
+                <th>SEVERITY</th>
+            
+                <th>ACTION</th>
+            
+                <th>TAGS</th>
+            
+        </tr>
+
+</table>
+<br>
+<hr>
+</div><div class="div-main">
+    <br>
+    <div class="v38_6837"></div>
+    <div class="wrapper">
+        
+            <table align=center border=0 cellpadding=2>
+                
+                <tr align=left>
+                    <td>Container</td>
+                    <td>: nginx</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>OS/Arch/Distro</td>
+                    <td>: //</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>Output Directory</td>
+                    <td>: out/default-nginx</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>policy-template version</td>
+                    <td>: v0.1.9</td>
+                </tr>
+                
+            </table>
+        
+    </div>
+    <div class="div-main">
+        <br>
+    </div>
+    <table border=0 id="table_detail" align=center cellpadding=30 >
+        <tr>
+            
+                <th>POLICY</th>
+            
+                <th>DESCRIPTION</th>
+            
+                <th>SEVERITY</th>
+            
+                <th>ACTION</th>
+            
+                <th>TAGS</th>
+            
+        </tr>
+
+            <tr onclick="showHideRow('row1');">
+				
+					
+						<td>
+							<span class="v38_6848">nginx-restrict-automount-sa-token.yaml</span>
+						</td>
+					
+				
+					
+						<td>Restrict Auto-Mount of Service Account Tokens</td>	
+					
+				
+					
+						<td>
+						
+							-
+						
+						</td>
+					
+				
+					
+						
+							<td>
+								<div class="v38_6985"><span class="v38_6986">Audit</span></div>
+							</td>
+				        
+					
+				
+					
+						<td>AUTOMOUNT_SERVICE_ACCOUNT</td>	
+					
+				
+
+					
+            </tr>
+            <tr id="row1" class="hidden_row">
+                <td colspan="100%">
+					<h3>Kyverno Policy</h3>
+<pre>
+apiVersion: kyverno.io/v1
+kind: Policy
+metadata:
+  annotations:
+    policies.kyverno.io/category: Sample, EKS Best Practices
+    policies.kyverno.io/description: Kubernetes automatically mounts ServiceAccount
+      credentials in each Pod. The ServiceAccount may be assigned roles allowing Pods
+      to access API resources. Blocking this ability is an extension of the least
+      privilege best practice and should be followed if Pods do not need to speak
+      to the API server to function. This policy ensures that mounting of these ServiceAccount
+      tokens is blocked.
+    policies.kyverno.io/minversion: 1.6.0
+    policies.kyverno.io/severity: medium
+    policies.kyverno.io/subject: Pod,ServiceAccount
+    policies.kyverno.io/title: Restrict Auto-Mount of Service Account Tokens
+    recommended-policies.accuknox.com/tags: AUTOMOUNT_SERVICE_ACCOUNT
+  name: nginx-restrict-automount-sa-token
+  namespace: default
+spec:
+  background: true
+  rules:
+  - match:
+      any:
+      - resources:
+          kinds:
+          - Deployment
+    name: validate-automountServiceAccountToken
+    preconditions:
+      all:
+      - key: &#39;{{ request.operation || &#39;&#39;BACKGROUND&#39;&#39; }}&#39;
+        operator: NotEquals
+        value: DELETE
+      - key: &#39;{{ request.object.spec.template.metadata.labels.app || &#39;&#39;&#39;&#39; }}&#39;
+        operator: Equals
+        value: nginx
+    validate:
+      message: Auto-mounting of Service Account tokens is not allowed.
+      pattern:
+        spec:
+          template:
+            spec:
+              automountServiceAccountToken: &#34;false&#34;
+  validationFailureAction: audit
+
+</pre>
+					<h3>Description</h3>
+					Kubernetes automatically mounts ServiceAccount credentials in each Pod. The ServiceAccount may be assigned roles allowing Pods to access API resources. Blocking this ability is an extension of the least privilege best practice and should be followed if Pods do not need to speak to the API server to function. This policy ensures that mounting of these ServiceAccount tokens is blocked.
+					<br>
+					<h3>References</h3>
+					
+                </td>
+            </tr>
+</table>
+<br>
+<hr>
+</div><div class="div-main">
+    <br>
+    <div class="v38_6837"></div>
+    <div class="wrapper">
+        
+            <table align=center border=0 cellpadding=2>
+                
+                <tr align=left>
+                    <td>Container</td>
+                    <td>: registry.k8s.io/coredns/coredns:v1.9.3</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>OS/Arch/Distro</td>
+                    <td>: //</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>Output Directory</td>
+                    <td>: out/kube-system-coredns</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>policy-template version</td>
+                    <td>: v0.1.9</td>
+                </tr>
+                
+            </table>
+        
+    </div>
+    <div class="div-main">
+        <br>
+    </div>
+    <table border=0 id="table_detail" align=center cellpadding=30 >
+        <tr>
+            
+                <th>POLICY</th>
+            
+                <th>DESCRIPTION</th>
+            
+                <th>SEVERITY</th>
+            
+                <th>ACTION</th>
+            
+                <th>TAGS</th>
+            
+        </tr>
+
+</table>
+<br>
+<hr>
+</div><div class="div-main">
+    <br>
+    <div class="v38_6837"></div>
+    <div class="wrapper">
+        
+            <table align=center border=0 cellpadding=2>
+                
+                <tr align=left>
+                    <td>Container</td>
+                    <td>: gcr.io/kubebuilder/kube-rbac-proxy:v0.8.0</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>OS/Arch/Distro</td>
+                    <td>: //</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>Output Directory</td>
+                    <td>: out/kube-system-kubearmor-annotation-manager</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>policy-template version</td>
+                    <td>: v0.1.9</td>
+                </tr>
+                
+            </table>
+        
+    </div>
+    <div class="div-main">
+        <br>
+    </div>
+    <table border=0 id="table_detail" align=center cellpadding=30 >
+        <tr>
+            
+                <th>POLICY</th>
+            
+                <th>DESCRIPTION</th>
+            
+                <th>SEVERITY</th>
+            
+                <th>ACTION</th>
+            
+                <th>TAGS</th>
+            
+        </tr>
+
+</table>
+<br>
+<hr>
+</div><div class="div-main">
+    <br>
+    <div class="v38_6837"></div>
+    <div class="wrapper">
+        
+            <table align=center border=0 cellpadding=2>
+                
+                <tr align=left>
+                    <td>Container</td>
+                    <td>: kubearmor/kubearmor-annotation-manager:latest</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>OS/Arch/Distro</td>
+                    <td>: //</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>Output Directory</td>
+                    <td>: out/kube-system-kubearmor-annotation-manager</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>policy-template version</td>
+                    <td>: v0.1.9</td>
+                </tr>
+                
+            </table>
+        
+    </div>
+    <div class="div-main">
+        <br>
+    </div>
+    <table border=0 id="table_detail" align=center cellpadding=30 >
+        <tr>
+            
+                <th>POLICY</th>
+            
+                <th>DESCRIPTION</th>
+            
+                <th>SEVERITY</th>
+            
+                <th>ACTION</th>
+            
+                <th>TAGS</th>
+            
+        </tr>
+
+</table>
+<br>
+<hr>
+</div><div class="div-main">
+    <br>
+    <div class="v38_6837"></div>
+    <div class="wrapper">
+        
+            <table align=center border=0 cellpadding=2>
+                
+                <tr align=left>
+                    <td>Container</td>
+                    <td>: gcr.io/kubebuilder/kube-rbac-proxy:v0.8.0</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>OS/Arch/Distro</td>
+                    <td>: //</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>Output Directory</td>
+                    <td>: out/kube-system-kubearmor-host-policy-manager</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>policy-template version</td>
+                    <td>: v0.1.9</td>
+                </tr>
+                
+            </table>
+        
+    </div>
+    <div class="div-main">
+        <br>
+    </div>
+    <table border=0 id="table_detail" align=center cellpadding=30 >
+        <tr>
+            
+                <th>POLICY</th>
+            
+                <th>DESCRIPTION</th>
+            
+                <th>SEVERITY</th>
+            
+                <th>ACTION</th>
+            
+                <th>TAGS</th>
+            
+        </tr>
+
+</table>
+<br>
+<hr>
+</div><div class="div-main">
+    <br>
+    <div class="v38_6837"></div>
+    <div class="wrapper">
+        
+            <table align=center border=0 cellpadding=2>
+                
+                <tr align=left>
+                    <td>Container</td>
+                    <td>: kubearmor/kubearmor-host-policy-manager:latest</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>OS/Arch/Distro</td>
+                    <td>: //</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>Output Directory</td>
+                    <td>: out/kube-system-kubearmor-host-policy-manager</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>policy-template version</td>
+                    <td>: v0.1.9</td>
+                </tr>
+                
+            </table>
+        
+    </div>
+    <div class="div-main">
+        <br>
+    </div>
+    <table border=0 id="table_detail" align=center cellpadding=30 >
+        <tr>
+            
+                <th>POLICY</th>
+            
+                <th>DESCRIPTION</th>
+            
+                <th>SEVERITY</th>
+            
+                <th>ACTION</th>
+            
+                <th>TAGS</th>
+            
+        </tr>
+
+</table>
+<br>
+<hr>
+</div><div class="div-main">
+    <br>
+    <div class="v38_6837"></div>
+    <div class="wrapper">
+        
+            <table align=center border=0 cellpadding=2>
+                
+                <tr align=left>
+                    <td>Container</td>
+                    <td>: gcr.io/kubebuilder/kube-rbac-proxy:v0.8.0</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>OS/Arch/Distro</td>
+                    <td>: //</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>Output Directory</td>
+                    <td>: out/kube-system-kubearmor-policy-manager</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>policy-template version</td>
+                    <td>: v0.1.9</td>
+                </tr>
+                
+            </table>
+        
+    </div>
+    <div class="div-main">
+        <br>
+    </div>
+    <table border=0 id="table_detail" align=center cellpadding=30 >
+        <tr>
+            
+                <th>POLICY</th>
+            
+                <th>DESCRIPTION</th>
+            
+                <th>SEVERITY</th>
+            
+                <th>ACTION</th>
+            
+                <th>TAGS</th>
+            
+        </tr>
+
+</table>
+<br>
+<hr>
+</div><div class="div-main">
+    <br>
+    <div class="v38_6837"></div>
+    <div class="wrapper">
+        
+            <table align=center border=0 cellpadding=2>
+                
+                <tr align=left>
+                    <td>Container</td>
+                    <td>: kubearmor/kubearmor-policy-manager:latest</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>OS/Arch/Distro</td>
+                    <td>: //</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>Output Directory</td>
+                    <td>: out/kube-system-kubearmor-policy-manager</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>policy-template version</td>
+                    <td>: v0.1.9</td>
+                </tr>
+                
+            </table>
+        
+    </div>
+    <div class="div-main">
+        <br>
+    </div>
+    <table border=0 id="table_detail" align=center cellpadding=30 >
+        <tr>
+            
+                <th>POLICY</th>
+            
+                <th>DESCRIPTION</th>
+            
+                <th>SEVERITY</th>
+            
+                <th>ACTION</th>
+            
+                <th>TAGS</th>
+            
+        </tr>
+
+</table>
+<br>
+<hr>
+</div><div class="div-main">
+    <br>
+    <div class="v38_6837"></div>
+    <div class="wrapper">
+        
+            <table align=center border=0 cellpadding=2>
+                
+                <tr align=left>
+                    <td>Container</td>
+                    <td>: kubearmor/kubearmor-relay-server:latest</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>OS/Arch/Distro</td>
+                    <td>: //</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>Output Directory</td>
+                    <td>: out/kube-system-kubearmor-relay</td>
+                </tr>
+                
+                <tr align=left>
+                    <td>policy-template version</td>
+                    <td>: v0.1.9</td>
+                </tr>
+                
+            </table>
+        
+    </div>
+    <div class="div-main">
+        <br>
+    </div>
+    <table border=0 id="table_detail" align=center cellpadding=30 >
+        <tr>
+            
+                <th>POLICY</th>
+            
+                <th>DESCRIPTION</th>
+            
+                <th>SEVERITY</th>
+            
+                <th>ACTION</th>
+            
+                <th>TAGS</th>
+            
+        </tr>
+
+</table>
+<br>
+<hr>
+</div><div class="div-main">
+    <br>
+    <div class="v38_6837"></div>
+    <div class="wrapper">
+        
+            <h3 align="center" style="color: rgba(11,66,150,1); font-family: 'Red Hat Display';font-weight: Bold;">Generic Kyverno Policies</h3>
+        
+    </div>
+    <div class="div-main">
+        <br>
+    </div>
+    <table border=0 id="table_detail" align=center cellpadding=30 >
+        <tr>
+            
+                <th>POLICY</th>
+            
+                <th>DESCRIPTION</th>
+            
+                <th>SEVERITY</th>
+            
+                <th>ACTION</th>
+            
+                <th>TAGS</th>
+            
+        </tr>
+
+            <tr onclick="showHideRow('row2');">
+				
+					
+						<td>
+							<span class="v38_6848">restrict-deprecated-registry.yaml</span>
+						</td>
+					
+				
+					
+						<td>Restrict Deprecated Registry</td>	
+					
+				
+					
+						<td>
+						
+							-
+						
+						</td>
+					
+				
+					
+						
+				            <td>
+					            <div class="v38_6859"><span class="v38_6860">Enforce</span></div>
+				            </td>
+						
+					
+				
+					
+						<td>RESTRICT_DEPRECATED_REGISTRY</td>	
+					
+				
+
+					
+            </tr>
+            <tr id="row2" class="hidden_row">
+                <td colspan="100%">
+					<h3>Kyverno Policy</h3>
+<pre>
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  annotations:
+    policies.kyverno.io/category: Best Practices, EKS Best Practices
+    policies.kyverno.io/description: Legacy k8s.gcr.io container image registry will
+      be frozen in early April 2023 k8s.gcr.io image registry will be frozen from
+      the 3rd of April 2023.   Images for Kubernetes 1.27 will not be available in
+      the k8s.gcr.io image registry. Please read our announcement for more details.
+      https://kubernetes.io/blog/2023/02/06/k8s-gcr-io-freeze-announcement/
+    policies.kyverno.io/minversion: 1.9.0
+    policies.kyverno.io/severity: high
+    policies.kyverno.io/subject: Pod
+    policies.kyverno.io/title: Restrict Deprecated Registry
+    recommended-policies.accuknox.com/tags: RESTRICT_DEPRECATED_REGISTRY
+  name: restrict-deprecated-registry
+spec:
+  background: true
+  rules:
+  - match:
+      any:
+      - resources:
+          kinds:
+          - Pod
+    name: restrict-deprecated-registry
+    validate:
+      foreach:
+      - deny:
+          conditions:
+            all:
+            - key: &#39;{{ element.image }}&#39;
+              operator: Equals
+              value: k8s.gcr.io/*
+        list: request.object.spec.[initContainers, ephemeralContainers, containers][]
+      message: The &#34;k8s.gcr.io&#34; image registry is deprecated. &#34;registry.k8s.io&#34; should
+        now be used.
+  validationFailureAction: Enforce
+
+</pre>
+					<h3>Description</h3>
+					Legacy k8s.gcr.io container image registry will be frozen in early April 2023 k8s.gcr.io image registry will be frozen from the 3rd of April 2023.   Images for Kubernetes 1.27 will not be available in the k8s.gcr.io image registry. Please read our announcement for more details. https://kubernetes.io/blog/2023/02/06/k8s-gcr-io-freeze-announcement/
+					<br>
+					<h3>References</h3>
+					
+                </td>
+            </tr>
+            <tr onclick="showHideRow('row3');">
+				
+					
+						<td>
+							<span class="v38_6848">prevent-cr8escape.yaml</span>
+						</td>
+					
+				
+					
+						<td>Prevent cr8escape (CVE-2022-0811)</td>	
+					
+				
+					
+						<td>
+						
+							-
+						
+						</td>
+					
+				
+					
+						
+				            <td>
+					            <div class="v38_6859"><span class="v38_6860">Enforce</span></div>
+				            </td>
+						
+					
+				
+					
+						<td>CVE-2022-0811</td>	
+					
+				
+
+					
+            </tr>
+            <tr id="row3" class="hidden_row">
+                <td colspan="100%">
+					<h3>Kyverno Policy</h3>
+<pre>
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  annotations:
+    kyverno.io/kubernetes-version: &#34;1.23&#34;
+    kyverno.io/kyverno-version: 1.6.0
+    policies.kyverno.io/category: Other
+    policies.kyverno.io/description: A vulnerability &#34;cr8escape&#34; (CVE-2022-0811) in
+      CRI-O the container runtime engine underpinning Kubernetes allows attackers
+      to escape from a Kubernetes container and gain root access to the host. The
+      recommended remediation is to disallow sysctl settings with &#43; or = in their
+      value.
+    policies.kyverno.io/minversion: 1.6.0
+    policies.kyverno.io/severity: high
+    policies.kyverno.io/subject: Pod
+    policies.kyverno.io/title: Prevent cr8escape (CVE-2022-0811)
+    recommended-policies.accuknox.com/tags: CVE-2022-0811
+  name: prevent-cr8escape
+spec:
+  background: true
+  rules:
+  - match:
+      any:
+      - resources:
+          kinds:
+          - Pod
+    name: restrict-sysctls-cr8escape
+    validate:
+      message: characters &#39;&#43;&#39; or &#39;=&#39; are not allowed in sysctls values
+      pattern:
+        spec:
+          =(securityContext):
+            =(sysctls):
+            - =(value): &#39;!*&#43;* &amp; !*=*&#39;
+  validationFailureAction: enforce
+
+</pre>
+					<h3>Description</h3>
+					A vulnerability &#34;cr8escape&#34; (CVE-2022-0811) in CRI-O the container runtime engine underpinning Kubernetes allows attackers to escape from a Kubernetes container and gain root access to the host. The recommended remediation is to disallow sysctl settings with &#43; or = in their value.
+					<br>
+					<h3>References</h3>
+					
+                </td>
+            </tr>
+            <tr onclick="showHideRow('row4');">
+				
+					
+						<td>
+							<span class="v38_6848">check-kernel-version.yaml</span>
+						</td>
+					
+				
+					
+						<td>Check Node for CVE-2022-0185</td>	
+					
+				
+					
+						<td>
+						
+							-
+						
+						</td>
+					
+				
+					
+						
+							<td>
+								<div class="v38_6985"><span class="v38_6986">Audit</span></div>
+							</td>
+				        
+					
+				
+					
+						<td>CVE-2022-0185</td>	
+					
+				
+
+					
+            </tr>
+            <tr id="row4" class="hidden_row">
+                <td colspan="100%">
+					<h3>Kyverno Policy</h3>
+<pre>
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  annotations:
+    kyverno.io/kubernetes-version: &#34;1.23&#34;
+    kyverno.io/kyverno-version: 1.6.0
+    policies.kyverno.io/category: Other
+    policies.kyverno.io/description: Linux CVE-2022-0185 can allow a container escape
+      in Kubernetes if left unpatched. The affected Linux kernel versions, at this
+      time, are 5.10.84-1 and 5.15.5-2. For more information, refer to https://security-tracker.debian.org/tracker/CVE-2022-0185.
+      This policy runs in background mode and flags an entry in the ClusterPolicyReport
+      if any Node is reporting one of the affected kernel versions.
+    policies.kyverno.io/minversion: 1.6.0
+    policies.kyverno.io/severity: high
+    policies.kyverno.io/subject: Node
+    policies.kyverno.io/title: Check Node for CVE-2022-0185
+    recommended-policies.accuknox.com/tags: CVE-2022-0185
+  name: check-kernel-version
+spec:
+  background: true
+  rules:
+  - match:
+      any:
+      - resources:
+          kinds:
+          - Node
+    name: kernel-validate
+    validate:
+      deny:
+        conditions:
+          any:
+          - key: &#39;{{request.object.status.nodeInfo.kernelVersion}}&#39;
+            operator: Equals
+            value: 5.10.84-1
+          - key: &#39;{{request.object.status.nodeInfo.kernelVersion}}&#39;
+            operator: Equals
+            value: 5.15.5-2
+      message: Kernel is vulnerable to CVE-2022-0185.
+  validationFailureAction: audit
+
+</pre>
+					<h3>Description</h3>
+					Linux CVE-2022-0185 can allow a container escape in Kubernetes if left unpatched. The affected Linux kernel versions, at this time, are 5.10.84-1 and 5.15.5-2. For more information, refer to https://security-tracker.debian.org/tracker/CVE-2022-0185. This policy runs in background mode and flags an entry in the ClusterPolicyReport if any Node is reporting one of the affected kernel versions.
+					<br>
+					<h3>References</h3>
+					
+                </td>
+            </tr>
+            <tr onclick="showHideRow('row5');">
+				
+					
+						<td>
+							<span class="v38_6848">restrict-ingress-defaultbackend.yaml</span>
+						</td>
+					
+				
+					
+						<td>Restrict Ingress defaultBackend</td>	
+					
+				
+					
+						<td>
+						
+							-
+						
+						</td>
+					
+				
+					
+						
+							<td>
+								<div class="v38_6985"><span class="v38_6986">Audit</span></div>
+							</td>
+				        
+					
+				
+					
+						<td>RESTRICT_INGRESS_DEFAULTBACKEND</td>	
+					
+				
+
+					
+            </tr>
+            <tr id="row5" class="hidden_row">
+                <td colspan="100%">
+					<h3>Kyverno Policy</h3>
+<pre>
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  annotations:
+    kyverno.io/kubernetes-version: &#34;1.23&#34;
+    kyverno.io/kyverno-version: 1.6.2
+    policies.kyverno.io/category: Best Practices
+    policies.kyverno.io/description: An Ingress with no rules sends all traffic to
+      a single default backend. The defaultBackend is conventionally a configuration
+      option of the Ingress controller and is not specified in your Ingress resources.
+      If none of the hosts or paths match the HTTP request in the Ingress objects,
+      the traffic is routed to your default backend. In a multi-tenant environment,
+      you want users to use explicit hosts, they should not be able to overwrite the
+      global default backend service. This policy prohibits the use of the defaultBackend
+      field.
+    policies.kyverno.io/minversion: 1.6.0
+    policies.kyverno.io/severity: high
+    policies.kyverno.io/subject: Ingress
+    policies.kyverno.io/title: Restrict Ingress defaultBackend
+    recommended-policies.accuknox.com/tags: RESTRICT_INGRESS_DEFAULTBACKEND
+  name: restrict-ingress-defaultbackend
+spec:
+  background: true
+  rules:
+  - match:
+      any:
+      - resources:
+          kinds:
+          - Ingress
+    name: restrict-ingress-defaultbackend
+    validate:
+      message: Setting the defaultBackend field is prohibited.
+      pattern:
+        spec:
+          X(defaultBackend): &#34;null&#34;
+  validationFailureAction: audit
+
+</pre>
+					<h3>Description</h3>
+					An Ingress with no rules sends all traffic to a single default backend. The defaultBackend is conventionally a configuration option of the Ingress controller and is not specified in your Ingress resources. If none of the hosts or paths match the HTTP request in the Ingress objects, the traffic is routed to your default backend. In a multi-tenant environment, you want users to use explicit hosts, they should not be able to overwrite the global default backend service. This policy prohibits the use of the defaultBackend field.
+					<br>
+					<h3>References</h3>
+					
+                </td>
+            </tr>
+            <tr onclick="showHideRow('row6');">
+				
+					
+						<td>
+							<span class="v38_6848">restrict-nginx-ingress-annotations.yaml</span>
+						</td>
+					
+				
+					
+						<td>Restrict NGINX Ingress annotation values</td>	
+					
+				
+					
+						<td>
+						
+							-
+						
+						</td>
+					
+				
+					
+						
+				            <td>
+					            <div class="v38_6859"><span class="v38_6860">Enforce</span></div>
+				            </td>
+						
+					
+				
+					
+						<td>CVE-2021-25746</td>	
+					
+				
+
+					
+            </tr>
+            <tr id="row6" class="hidden_row">
+                <td colspan="100%">
+					<h3>Kyverno Policy</h3>
+<pre>
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  annotations:
+    kyverno.io/kubernetes-version: &#34;1.23&#34;
+    kyverno.io/kyverno-version: 1.6.0
+    policies.kyverno.io/category: Security, NGINX Ingress
+    policies.kyverno.io/description: &#39;This policy mitigates CVE-2021-25746 by restricting
+      `metadata.annotations` to safe values. See: https://github.com/kubernetes/ingress-nginx/blame/main/internal/ingress/inspector/rules.go.
+      This issue has been fixed in NGINX Ingress v1.2.0. For NGINX Ingress version
+      1.0.5&#43; the  &#34;annotation-value-word-blocklist&#34; configuration setting is also
+      recommended.  Please refer to the CVE for details.&#39;
+    policies.kyverno.io/minversion: 1.6.0
+    policies.kyverno.io/severity: high
+    policies.kyverno.io/subject: Ingress
+    policies.kyverno.io/title: Restrict NGINX Ingress annotation values
+    recommended-policies.accuknox.com/tags: CVE-2021-25746
+  name: restrict-nginx-ingress-annotations
+spec:
+  rules:
+  - match:
+      any:
+      - resources:
+          kinds:
+          - networking.k8s.io/v1/Ingress
+    name: check-ingress
+    validate:
+      deny:
+        conditions:
+          any:
+          - key: &#39;{{request.object.metadata.annotations.values(@)[].regex_match(&#39;&#39;\s*alias\s*.*;&#39;&#39;,
+              @)}}&#39;
+            operator: AnyIn
+            value:
+            - true
+          - key: &#39;{{request.object.metadata.annotations.values(@)[].regex_match(&#39;&#39;\s*root\s*.*;&#39;&#39;,
+              @)}}&#39;
+            operator: AnyIn
+            value:
+            - true
+          - key: &#39;{{request.object.metadata.annotations.values(@)[].regex_match(&#39;&#39;/etc/(passwd|shadow|group|nginx|ingress-controller)&#39;&#39;,
+              @)}}&#39;
+            operator: AnyIn
+            value:
+            - true
+          - key: &#39;{{request.object.metadata.annotations.values(@)[].regex_match(&#39;&#39;/var/run/secrets&#39;&#39;,
+              @)}}&#39;
+            operator: AnyIn
+            value:
+            - true
+          - key: &#39;{{request.object.metadata.annotations.values(@)[].regex_match(&#39;&#39;.*_by_lua.*&#39;&#39;,
+              @)}}&#39;
+            operator: AnyIn
+            value:
+            - true
+      message: spec.rules[].http.paths[].path value is not allowed
+  validationFailureAction: enforce
+
+</pre>
+					<h3>Description</h3>
+					This policy mitigates CVE-2021-25746 by restricting `metadata.annotations` to safe values. See: https://github.com/kubernetes/ingress-nginx/blame/main/internal/ingress/inspector/rules.go. This issue has been fixed in NGINX Ingress v1.2.0. For NGINX Ingress version 1.0.5&#43; the  &#34;annotation-value-word-blocklist&#34; configuration setting is also recommended.  Please refer to the CVE for details.
+					<br>
+					<h3>References</h3>
+					
+                </td>
+            </tr>
+            <tr onclick="showHideRow('row7');">
+				
+					
+						<td>
+							<span class="v38_6848">restrict-ingress-paths.yaml</span>
+						</td>
+					
+				
+					
+						<td>Restrict NGINX Ingress path values</td>	
+					
+				
+					
+						<td>
+						
+							-
+						
+						</td>
+					
+				
+					
+						
+				            <td>
+					            <div class="v38_6859"><span class="v38_6860">Enforce</span></div>
+				            </td>
+						
+					
+				
+					
+						<td>CVE-2021-25745</td>	
+					
+				
+
+					
+            </tr>
+            <tr id="row7" class="hidden_row">
+                <td colspan="100%">
+					<h3>Kyverno Policy</h3>
+<pre>
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  annotations:
+    kyverno.io/kubernetes-version: &#34;1.23&#34;
+    kyverno.io/kyverno-version: 1.6.0
+    policies.kyverno.io/category: Security, NGINX Ingress
+    policies.kyverno.io/description: This policy mitigates CVE-2021-25745 by restricting
+      `spec.rules[].http.paths[].path` to safe values. Additional paths can be added
+      as required. This issue has been fixed in NGINX Ingress v1.2.0.  Please refer
+      to the CVE for details.
+    policies.kyverno.io/minversion: 1.6.0
+    policies.kyverno.io/severity: high
+    policies.kyverno.io/subject: Ingress
+    policies.kyverno.io/title: Restrict NGINX Ingress path values
+    recommended-policies.accuknox.com/tags: CVE-2021-25745
+  name: restrict-ingress-paths
+spec:
+  rules:
+  - match:
+      any:
+      - resources:
+          kinds:
+          - networking.k8s.io/v1/Ingress
+    name: check-paths
+    validate:
+      deny:
+        conditions:
+          any:
+          - key: &#39;{{ request.object.spec.rules[].http.paths[].path.contains(@,&#39;&#39;/etc&#39;&#39;)
+              }}&#39;
+            operator: AnyIn
+            value:
+            - true
+          - key: &#39;{{ request.object.spec.rules[].http.paths[].path.contains(@,&#39;&#39;/var/run/secrets&#39;&#39;)
+              }}&#39;
+            operator: AnyIn
+            value:
+            - true
+          - key: &#39;{{ request.object.spec.rules[].http.paths[].path.contains(@,&#39;&#39;/root&#39;&#39;)
+              }}&#39;
+            operator: AnyIn
+            value:
+            - true
+          - key: &#39;{{ request.object.spec.rules[].http.paths[].path.contains(@,&#39;&#39;/var/run/kubernetes/serviceaccount&#39;&#39;)
+              }}&#39;
+            operator: AnyIn
+            value:
+            - true
+          - key: &#39;{{ request.object.spec.rules[].http.paths[].path.contains(@,&#39;&#39;/etc/kubernetes/admin.conf&#39;&#39;)
+              }}&#39;
+            operator: AnyIn
+            value:
+            - true
+      message: spec.rules[].http.paths[].path value is not allowed
+  validationFailureAction: enforce
+
+</pre>
+					<h3>Description</h3>
+					This policy mitigates CVE-2021-25745 by restricting `spec.rules[].http.paths[].path` to safe values. Additional paths can be added as required. This issue has been fixed in NGINX Ingress v1.2.0.  Please refer to the CVE for details.
+					<br>
+					<h3>References</h3>
+					
+                </td>
+            </tr>
+            <tr onclick="showHideRow('row8');">
+				
+					
+						<td>
+							<span class="v38_6848">prevent-naked-pods.yaml</span>
+						</td>
+					
+				
+					
+						<td>Prevent Naked Pods</td>	
+					
+				
+					
+						<td>
+						
+							-
+						
+						</td>
+					
+				
+					
+						
+							<td>
+								<div class="v38_6985"><span class="v38_6986">Audit</span></div>
+							</td>
+				        
+					
+				
+					
+						<td>PREVENT_NAKED_PODS</td>	
+					
+				
+
+					
+            </tr>
+            <tr id="row8" class="hidden_row">
+                <td colspan="100%">
+					<h3>Kyverno Policy</h3>
+<pre>
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  annotations:
+    kyverno.io/kubernetes-version: &#34;1.23&#34;
+    kyverno.io/kyverno-version: 1.7.0
+    pod-policies.kyverno.io/autogen-controllers: none
+    policies.kyverno.io/category: Other, EKS Best Practices
+    policies.kyverno.io/description: Pods not created by workload controllers such
+      as Deployments have no self-healing or scaling abilities and are unsuitable
+      for production. This policy prevents such &#34;naked&#34; Pods from being created unless
+      they originate from a higher-level workload controller of some sort.
+    policies.kyverno.io/minversion: 1.6.0
+    policies.kyverno.io/severity: medium
+    policies.kyverno.io/subject: Pod
+    policies.kyverno.io/title: Prevent Naked Pods
+    recommended-policies.accuknox.com/tags: PREVENT_NAKED_PODS
+  name: prevent-naked-pods
+spec:
+  background: true
+  rules:
+  - match:
+      any:
+      - resources:
+          kinds:
+          - Pod
+    name: naked-pods
+    preconditions:
+      all:
+      - key: &#39;{{request.operation || &#39;&#39;BACKGROUND&#39;&#39;}}&#39;
+        operator: NotEquals
+        value: DELETE
+    validate:
+      deny:
+        conditions:
+          any:
+          - key: ownerReferences
+            operator: AnyNotIn
+            value: &#39;{{request.object.metadata.keys(@)}}&#39;
+      message: Naked Pods are not allowed. They must be created by Pod controllers.
+  validationFailureAction: audit
+
+</pre>
+					<h3>Description</h3>
+					Pods not created by workload controllers such as Deployments have no self-healing or scaling abilities and are unsuitable for production. This policy prevents such &#34;naked&#34; Pods from being created unless they originate from a higher-level workload controller of some sort.
+					<br>
+					<h3>References</h3>
+					
+                </td>
+            </tr>
+            <tr onclick="showHideRow('row9');">
+				
+					
+						<td>
+							<span class="v38_6848">restrict-wildcard-verbs.yaml</span>
+						</td>
+					
+				
+					
+						<td>Restrict Wildcard in Verbs</td>	
+					
+				
+					
+						<td>
+						
+							-
+						
+						</td>
+					
+				
+					
+						
+							<td>
+								<div class="v38_6985"><span class="v38_6986">Audit</span></div>
+							</td>
+				        
+					
+				
+					
+						<td>RESTRICT_WILDCARD_VERBS</td>	
+					
+				
+
+					
+            </tr>
+            <tr id="row9" class="hidden_row">
+                <td colspan="100%">
+					<h3>Kyverno Policy</h3>
+<pre>
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  annotations:
+    kyverno.io/kubernetes-version: &#34;1.23&#34;
+    kyverno.io/kyverno-version: 1.6.2
+    policies.kyverno.io/category: Security, EKS Best Practices
+    policies.kyverno.io/description: Wildcards (&#39;*&#39;) in verbs grants all access to
+      the resources referenced by it and does not follow the principal of least privilege.
+      As much as possible, avoid such open verbs unless scoped to perhaps a custom
+      API group. This policy blocks any Role or ClusterRole that contains a wildcard
+      entry in the verbs list found in any rule.
+    policies.kyverno.io/minversion: 1.6.0
+    policies.kyverno.io/severity: medium
+    policies.kyverno.io/subject: Role, ClusterRole, RBAC
+    policies.kyverno.io/title: Restrict Wildcard in Verbs
+    recommended-policies.accuknox.com/tags: RESTRICT_WILDCARD_VERBS
+  name: restrict-wildcard-verbs
+spec:
+  background: true
+  rules:
+  - match:
+      any:
+      - resources:
+          kinds:
+          - Role
+          - ClusterRole
+    name: wildcard-verbs
+    validate:
+      deny:
+        conditions:
+          any:
+          - key: &#39;{{ contains(request.object.rules[].verbs[], &#39;&#39;*&#39;&#39;) }}&#39;
+            operator: Equals
+            value: true
+      message: Use of a wildcard (&#39;*&#39;) in any verbs is forbidden.
+  validationFailureAction: audit
+
+</pre>
+					<h3>Description</h3>
+					Wildcards (&#39;*&#39;) in verbs grants all access to the resources referenced by it and does not follow the principal of least privilege. As much as possible, avoid such open verbs unless scoped to perhaps a custom API group. This policy blocks any Role or ClusterRole that contains a wildcard entry in the verbs list found in any rule.
+					<br>
+					<h3>References</h3>
+					
+                </td>
+            </tr>
+            <tr onclick="showHideRow('row10');">
+				
+					
+						<td>
+							<span class="v38_6848">restrict-wildcard-resources.yaml</span>
+						</td>
+					
+				
+					
+						<td>Restrict Wildcards in Resources</td>	
+					
+				
+					
+						<td>
+						
+							-
+						
+						</td>
+					
+				
+					
+						
+							<td>
+								<div class="v38_6985"><span class="v38_6986">Audit</span></div>
+							</td>
+				        
+					
+				
+					
+						<td>RESTRICT_WILDCARD_RESOURCES</td>	
+					
+				
+
+					
+            </tr>
+            <tr id="row10" class="hidden_row">
+                <td colspan="100%">
+					<h3>Kyverno Policy</h3>
+<pre>
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  annotations:
+    kyverno.io/kubernetes-version: &#34;1.23&#34;
+    kyverno.io/kyverno-version: 1.7.0
+    policies.kyverno.io/category: Security, EKS Best Practices
+    policies.kyverno.io/description: Wildcards (&#39;*&#39;) in resources grants access to
+      all of the resources referenced by the given API group and does not follow the
+      principal of least privilege. As much as possible, avoid such open resources
+      unless scoped to perhaps a custom API group. This policy blocks any Role or
+      ClusterRole that contains a wildcard entry in the resources list found in any
+      rule.
+    policies.kyverno.io/minversion: 1.6.0
+    policies.kyverno.io/severity: medium
+    policies.kyverno.io/subject: ClusterRole, Role, RBAC
+    policies.kyverno.io/title: Restrict Wildcards in Resources
+    recommended-policies.accuknox.com/tags: RESTRICT_WILDCARD_RESOURCES
+  name: restrict-wildcard-resources
+spec:
+  background: true
+  rules:
+  - match:
+      any:
+      - resources:
+          kinds:
+          - Role
+          - ClusterRole
+    name: wildcard-resources
+    validate:
+      deny:
+        conditions:
+          any:
+          - key: &#39;{{ contains(request.object.rules[].resources[], &#39;&#39;*&#39;&#39;) }}&#39;
+            operator: Equals
+            value: true
+      message: Use of a wildcard (&#39;*&#39;) in any resources is forbidden.
+  validationFailureAction: audit
+
+</pre>
+					<h3>Description</h3>
+					Wildcards (&#39;*&#39;) in resources grants access to all of the resources referenced by the given API group and does not follow the principal of least privilege. As much as possible, avoid such open resources unless scoped to perhaps a custom API group. This policy blocks any Role or ClusterRole that contains a wildcard entry in the resources list found in any rule.
+					<br>
+					<h3>References</h3>
+					
+                </td>
+            </tr>
+            <tr onclick="showHideRow('row11');">
+				
+					
+						<td>
+							<span class="v38_6848">require-requests-limits.yaml</span>
+						</td>
+					
+				
+					
+						<td>Require Limits and Requests</td>	
+					
+				
+					
+						<td>
+						
+							-
+						
+						</td>
+					
+				
+					
+						
+							<td>
+								<div class="v38_6985"><span class="v38_6986">Audit</span></div>
+							</td>
+				        
+					
+				
+					
+						<td>REQUIRE_REQUESTS_LIMITS</td>	
+					
+				
+
+					
+            </tr>
+            <tr id="row11" class="hidden_row">
+                <td colspan="100%">
+					<h3>Kyverno Policy</h3>
+<pre>
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  annotations:
+    policies.kyverno.io/category: Best Practices, EKS Best Practices
+    policies.kyverno.io/description: As application workloads share cluster resources,
+      it is important to limit resources requested and consumed by each Pod. It is
+      recommended to require resource requests and limits per Pod, especially for
+      memory and CPU. If a Namespace level request or limit is specified, defaults
+      will automatically be applied to each Pod based on the LimitRange configuration.
+      This policy validates that all containers have something specified for memory
+      and CPU requests and memory limits.
+    policies.kyverno.io/minversion: 1.6.0
+    policies.kyverno.io/severity: medium
+    policies.kyverno.io/subject: Pod
+    policies.kyverno.io/title: Require Limits and Requests
+    recommended-policies.accuknox.com/tags: REQUIRE_REQUESTS_LIMITS
+  name: require-requests-limits
+spec:
+  background: true
+  rules:
+  - match:
+      any:
+      - resources:
+          kinds:
+          - Pod
+    name: validate-resources
+    validate:
+      message: CPU and memory resource requests and limits are required.
+      pattern:
+        spec:
+          containers:
+          - resources:
+              limits:
+                memory: ?*
+              requests:
+                cpu: ?*
+                memory: ?*
+  validationFailureAction: audit
+
+</pre>
+					<h3>Description</h3>
+					As application workloads share cluster resources, it is important to limit resources requested and consumed by each Pod. It is recommended to require resource requests and limits per Pod, especially for memory and CPU. If a Namespace level request or limit is specified, defaults will automatically be applied to each Pod based on the LimitRange configuration. This policy validates that all containers have something specified for memory and CPU requests and memory limits.
+					<br>
+					<h3>References</h3>
+					
+                </td>
+            </tr>
+            <tr onclick="showHideRow('row12');">
+				
+					
+						<td>
+							<span class="v38_6848">require-pod-probes.yaml</span>
+						</td>
+					
+				
+					
+						<td>Require Pod Probes</td>	
+					
+				
+					
+						<td>
+						
+							-
+						
+						</td>
+					
+				
+					
+						
+							<td>
+								<div class="v38_6985"><span class="v38_6986">Audit</span></div>
+							</td>
+				        
+					
+				
+					
+						<td>REQUIRE_POD_PROBES</td>	
+					
+				
+
+					
+            </tr>
+            <tr id="row12" class="hidden_row">
+                <td colspan="100%">
+					<h3>Kyverno Policy</h3>
+<pre>
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  annotations:
+    pod-policies.kyverno.io/autogen-controllers: DaemonSet,Deployment,StatefulSet
+    policies.kyverno.io/category: Best Practices, EKS Best Practices
+    policies.kyverno.io/description: Liveness and readiness probes need to be configured
+      to correctly manage a Pod&#39;s lifecycle during deployments, restarts, and upgrades.
+      For each Pod, a periodic `livenessProbe` is performed by the kubelet to determine
+      if the Pod&#39;s containers are running or need to be restarted. A `readinessProbe`
+      is used by Services and Deployments to determine if the Pod is ready to receive
+      network traffic. This policy validates that all containers have one of livenessProbe,
+      readinessProbe, or startupProbe defined.
+    policies.kyverno.io/severity: medium
+    policies.kyverno.io/subject: Pod
+    policies.kyverno.io/title: Require Pod Probes
+    recommended-policies.accuknox.com/tags: REQUIRE_POD_PROBES
+  name: require-pod-probes
+spec:
+  background: true
+  rules:
+  - match:
+      any:
+      - resources:
+          kinds:
+          - Pod
+    name: validate-probes
+    validate:
+      foreach:
+      - deny:
+          conditions:
+            all:
+            - key: livenessProbe
+              operator: AllNotIn
+              value: &#39;{{ element.keys(@)[] }}&#39;
+            - key: startupProbe
+              operator: AllNotIn
+              value: &#39;{{ element.keys(@)[] }}&#39;
+            - key: readinessProbe
+              operator: AllNotIn
+              value: &#39;{{ element.keys(@)[] }}&#39;
+        list: request.object.spec.containers[]
+      message: Liveness, readiness, or startup probes are required for all containers.
+  validationFailureAction: audit
+
+</pre>
+					<h3>Description</h3>
+					Liveness and readiness probes need to be configured to correctly manage a Pod&#39;s lifecycle during deployments, restarts, and upgrades. For each Pod, a periodic `livenessProbe` is performed by the kubelet to determine if the Pod&#39;s containers are running or need to be restarted. A `readinessProbe` is used by Services and Deployments to determine if the Pod is ready to receive network traffic. This policy validates that all containers have one of livenessProbe, readinessProbe, or startupProbe defined.
+					<br>
+					<h3>References</h3>
+					
+                </td>
+            </tr>
+            <tr onclick="showHideRow('row13');">
+				
+					
+						<td>
+							<span class="v38_6848">drop-cap-net-raw.yaml</span>
+						</td>
+					
+				
+					
+						<td>Drop CAP_NET_RAW</td>	
+					
+				
+					
+						<td>
+						
+							-
+						
+						</td>
+					
+				
+					
+						
+							<td>
+								<div class="v38_6985"><span class="v38_6986">Audit</span></div>
+							</td>
+				        
+					
+				
+					
+						<td>DROP_CAP_NET_RAW</td>	
+					
+				
+
+					
+            </tr>
+            <tr id="row13" class="hidden_row">
+                <td colspan="100%">
+					<h3>Kyverno Policy</h3>
+<pre>
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  annotations:
+    policies.kyverno.io/category: Best Practices
+    policies.kyverno.io/description: Capabilities permit privileged actions without
+      giving full root access. The CAP_NET_RAW capability, enabled by default, allows
+      processes in a container to forge packets and bind to any interface potentially
+      leading to MitM attacks. This policy ensures that all containers explicitly
+      drop the CAP_NET_RAW ability. Note that this policy also illustrates how to
+      cover drop entries in any case although this may not strictly conform to the
+      Pod Security Standards.
+    policies.kyverno.io/minversion: 1.6.0
+    policies.kyverno.io/severity: medium
+    policies.kyverno.io/subject: Pod
+    policies.kyverno.io/title: Drop CAP_NET_RAW
+    recommended-policies.accuknox.com/tags: DROP_CAP_NET_RAW
+  name: drop-cap-net-raw
+spec:
+  background: true
+  rules:
+  - match:
+      any:
+      - resources:
+          kinds:
+          - Pod
+    name: require-drop-cap-net-raw
+    preconditions:
+      all:
+      - key: &#39;{{ request.operation || &#39;&#39;BACKGROUND&#39;&#39; }}&#39;
+        operator: NotEquals
+        value: DELETE
+    validate:
+      foreach:
+      - deny:
+          conditions:
+            all:
+            - key: CAP_NET_RAW
+              operator: AnyNotIn
+              value: &#39;{{ element.securityContext.capabilities.drop[].to_upper(@) ||
+                `[]` }}&#39;
+        list: request.object.spec.[ephemeralContainers, initContainers, containers][]
+      message: Containers must drop the `CAP_NET_RAW` capability.
+  validationFailureAction: audit
+
+</pre>
+					<h3>Description</h3>
+					Capabilities permit privileged actions without giving full root access. The CAP_NET_RAW capability, enabled by default, allows processes in a container to forge packets and bind to any interface potentially leading to MitM attacks. This policy ensures that all containers explicitly drop the CAP_NET_RAW ability. Note that this policy also illustrates how to cover drop entries in any case although this may not strictly conform to the Pod Security Standards.
+					<br>
+					<h3>References</h3>
+					
+                </td>
+            </tr>
+</table>
+<br>
+<hr>
+</div></div>
+</body>
+</html>
